@@ -1,2 +1,2 @@
 # Eccomerce_website
- Sitio web eccomerce responsive con HTML, CSS  y PHP 
+ Sitio web eccomerce responsive con HTML, CSS, JS y PHP 
