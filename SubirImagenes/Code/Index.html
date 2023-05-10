@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pagina Responsive</title>
+    <link rel="stylesheet" href="Index.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+</head>
+<body>
+<!--header-->
+    <header>
+        <a href="#" class = "logo">Page</a>
+        <div class="bx bx-menu" id="menu-icon" ></div>
+
+        <ul class = "navbar">
+            <li><a href="#home">Inicio</a></li>
+            <li><a href="#about">Sobre Mi</a></li>
+            <li><a href="#albumes">Albumes</a></li>
+            <li><a href="#lenguajes">Lenguajes</a></li>
+            <li><a href="#guitars">guitarras</a></li>
+            <li><a href="#contact">contacto</a></li>
+            <div class="botonModal">
+                <label for="btn-modalLogin">Registrate</label>
+            </div>
+            <input type="checkbox" id="btn-modalLogin">
+            <div class="containerModalLogin">
+                <div class="contentModalLogin">
+                    <h2>registrate</h2>
+                    <form action="registrar.php" method="POST">
+                        <p>
+                            <label for="nombre">Nombre completo</label>
+                            <input type="text" name="nombre" id="nombre">
+                        </p>
+                        <p>
+                            <label for="correo">Correo electronico</label>
+                            <input type="email" name="correo" id="correo">
+                        </p>
+                        <p>
+                            <label for="telefono">Telefono</label>
+                            <input type="tel" name="telefono" id="telefono">
+                        </p>
+                        <p>
+                            <label for="contrasenia">contraseña</label>
+                            <input type="text" name="contrasenia" id="contrasenia">
+                        </p>
+                        <p class = "block">
+                            <label for="username">username</label>
+                            <input type="text" name="username" id="username">
+                        </p>
+                        <p class = "buttons">
+                            <div class="btn-cerrar">
+                                <label for="btn-modalLogin">cerrar</label>
+                            </div>
+                            <button type="submit" name="enviar">Enviar</button>
+                        </p>
+
+                    </form>
+
+                </div>
+            </div>
+        </ul>
+    </header>
+<!--home page-->
+<section class = "home">
+    <div class="home-text">
+        <h1>Album infravalorado de Bon Jovi</h1>
+        <h2>desarrollado por <br>Levi Alexander Perez</h2>
+        <a href="https://music.youtube.com/playlist?list=OLAK5uy_lDqTNszfQK4pMSbIpLLEmYaB2DMluJjBY&feature=share" class="btn" target="_blank">Escuchar</a>
+    </div>
+    <div class="home-img">
+        <img src="/ResponsiveDesing/Img/Inicio.jpg" alt="">
+    </div>
+
+</section>
+
+<!--Section de about-->
+<section class="about" id="about">
+    <div class="about-img">
+        <img src="/ResponsiveDesing/Img/Logo.JPG" alt = "">
+    </div>
+    <div class="about-text">
+        <span>Sobre Mi</span>
+        <h1>Me gusta el desarrollo web <br>en especial el backend</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum itaque numquam rerum unde vel.
+            }Accusamus ad cum eius necessitatibus non officiis quibusdam sunt ut? Cupiditate eveniet harum
+            id labore officiis!</p>
+        <a href="https://github.com/Aalxnder" class="btn" target="_blank">Mi Github</a>
+    </div>
+</section>
+<section class="albumes" id="albumes">
+    <div class="heading">
+        <span>Albumes</span>
+        <h2>Otra lista de albumes chidos</h2>
+    </div>
+    <div class="album-container">
+        <div class="box">
+            <div class="box-img">
+                <img src="/ResponsiveDesing/Img/SkidRow.jpg" alt="">
+                <h2>Skid Row</h2>
+                <h3>Skid Row</h3>
+                <a class = "btn" href="https://music.youtube.com/playlist?list=OLAK5uy_lfsdZsaupDn1ljyQb_QkB1-YaHc8lFPbA&feature=share" target="_blank">Escuchar <i class='bx bx-music'></i></a>
+
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="box-img">
+                <img src="/ResponsiveDesing/Img/crypticWritings.jpg" alt="">
+                <h2>Cryptic Writings</h2>
+                <h3>Megadeth</h3>
+                <a class = "btn" href="https://music.youtube.com/playlist?list=OLAK5uy_mVpayAum5S7IRdUGfnhdEGP7tmeNnLI8k&feature=share" target="_blank">Escuchar <i class='bx bx-music'></i></a>
+
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="box-img">
+                <img src="/ResponsiveDesing/Img/MetalHealt.jpg" alt="">
+                <h2>Metal Health</h2>
+                <h3>Quiet Riot</h3>
+                <a class = "btn" href="https://music.youtube.com/playlist?list=OLAK5uy_nfLN_Cj5a3CgEkVUOMi-Nx3lAB3Sh4Tfs&feature=share" target="_blank">Escuchar <i class='bx bx-music'></i></a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="box-img">
+                <img src="/ResponsiveDesing/Img/Carrie.jpg" alt="">
+                <h2>1982-1992</h2>
+                <h3>Europe</h3>
+                <a class = "btn" href="https://music.youtube.com/playlist?list=OLAK5uy_lTbtcjfGfeA6_d8iWS2bMhP8vCWpla4G4&feature=share" target="_blank">Escuchar <i class='bx bx-music'></i></a>
+
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="box-img">
+                <img src="/ResponsiveDesing/Img/BonJovi.jpg" alt="">
+                <h2>Bon Jovi</h2>
+                <h3>Bon Jovi</h3>
+                <a class = "btn" href="https://music.youtube.com/playlist?list=OLAK5uy_lryowUUheaAO_z6_X-AEq3_CgXarZPw5M&feature=share" target="_blank">Escuchar <i class='bx bx-music'></i></a>
+
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="box-img">
+                <img src="/ResponsiveDesing/Img/VanHalen.jpg" alt="">
+                <h2>1984</h2>
+                <h3>Van Halen</h3>
+                <a class = "btn" href="https://music.youtube.com/playlist?list=OLAK5uy_lD9aKPLSGbivafRkBTGuqtERj2WrvhGH0&feature=share" target="_blank">Escuchar <i class='bx bx-music'></i></a>
+
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="box-img">
+                <img src="/ResponsiveDesing/Img/DireStraits.jpg" alt="">
+                <h2>Dire straits</h2>
+                <h3>Dire straits</h3>
+                <a class = "btn" href="https://music.youtube.com/playlist?list=OLAK5uy_nTaZkl4XWgXm23DMuAVRmxetjvXCfvexw&feature=share" target="_blank">Escuchar <i class='bx bx-music'></i></a>
+
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="box-img">
+                <img src="/ResponsiveDesing/Img/Trash.jpg" alt="">
+                <h2>Trash</h2>
+                <h3>Alice cooper</h3>
+                <a class = "btn" href="https://music.youtube.com/playlist?list=OLAK5uy_nIUuvKqXQcx3CR_3Ad8Nz_rtxjb09_xi0&feature=share" target="_blank">Escuchar <i class='bx bx-music'></i></a>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="lenguajes" id="lenguajes">
+    <div class="container">
+        <table class = "table">
+            <caption>Lenguajes de programación</caption>
+            <thead>
+               <tr>
+                   <th>Lenguaje</th>
+                   <th>Año</th>
+                   <th>Usos</th>
+                   <th>Desarrollador</th>
+               </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Lenguaje">Python</td>
+                    <td data-label="Año">1991</td>
+                    <td data-label="Usos">Web, Machine Learning, Data Science</td>
+                    <td data-label="Desarrollador">Guido van Rossum</td>
+                </tr>
+
+                <tr>
+                    <td data-label="Lenguaje">Java</td>
+                    <td data-label="Año">1995</td>
+                    <td data-label="Usos">Web, Android, Desktop y servidor</td>
+                    <td data-label="Desarrollador">James Gosling</td>
+                </tr>
+                <tr>
+                    <td data-label="Lenguaje">C++</td>
+                    <td data-label="Año">1983</td>
+                    <td data-label="Usos">Sistemas operativos, Programacion a bajo nivel</td>
+                    <td data-label="Desarrollador">Bjarne Stroustrup</td>
+                </tr>
+                <tr>
+                    <td data-label="Lenguaje">Java script</td>
+                    <td data-label="Año">1995</td>
+                    <td data-label="Usos">Web, Aplicaciones Moviles y diseño de interfaz de usuario</td>
+                    <td data-label="Desarrollador">Brendan Eich</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</section>
+
+<section class="guitars" id="guitars">
+    <div class="headingGuitars">
+        <span>Guitarras</span>
+        <h2>Mis guitarras Favoritas</h2>
+    </div>
+    <div class="container-guitar">
+        <div class="box">
+            <div class="img-container">
+                <img src="/ResponsiveDesing/Img/guitar1.jpg" alt="">
+            </div>
+            <div class="boton-modal">
+                <label for="btn-modal">Descripcion</label>
+            </div>
+            <input type="checkbox" id="btn-modal">
+            <div class="container-modal">
+                <div class="content-modal">
+                    <h2>Gibson Les paul Slash Signature</h2>
+                    <p>En honor al hecho de que Slash ha sido un usuario acérrimo de Les Paul, de que tiene una colección
+                        impresionante de las mismas y ha sido endorser durante muchos años, Gibson ha decidido sacar
+                        al mercado un modelo de Les Paul que recrea la Derrig 59 con la que grabó su primer disco:
+                        La Les Paul Slash Appetite for Destruction. Gibson introduce esta guitarra con todas las
+                        características originales de las Les Paul Standard de los años 58-60 y las equipa con las famosas
+                        pastillas Seymour Duncan Alnico II Pro Humbuckers. La Les Paul AFD es una primera pieza de colección
+                        gracias a su tapa de arce flameado de grado AAA y su acabado en nitrocelulosa “Unburst”,
+                        potenciómetros Top-Hat, diapasón de palorrosa con las tradicionales incrustaciones trapezoidales
+                        y el diseño del logo de la pala de Slash entre otras muchas prestaciones .</p>
+                    <div class="btn-cerrar">
+                        <label for="btn-modal">cerrar</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="img-container">
+                <img src="/ResponsiveDesing/Img/guitar2.jpg" alt="">
+            </div>
+            <div class="boton-modal">
+                <label for="btn-modal2">Descripcion</label>
+            </div>
+            <input type="checkbox" id="btn-modal2">
+
+            <div class="container-modal">
+                <div class="content-modal">
+                    <h2>Dean Flying V Dave Mustaine Signature</h2>
+                    <p>Esta guitarra tiene un sonido único en guitarras de cuerpo tipo Flying V. Este increíble instrumento tiene
+                        pastillas tipo Dave Mustaine Signature Seymour Duncan Thrash Factor diseñadas por el mismo guitarrista
+                        para cubrir todos los tonos y sonidos de megadeth. Su cuerpo está construido todo con madera de caoba,
+                        añadiéndole mucho sustain al instrumento. Su cuello es tipo SlimTaper con voluta. Esta le da una
+                        protección al cuello del instrumento para aguantar la tensión de las cuerdas y lo protege contra
+                        esas caídas mortales. También incluye un elegante y profundo trastero de ébano con incrustaciones de
+                        madre perla tipo “Teeth” y trastes medium jumbo.</p>
+                    <div class="btn-cerrar">
+                        <label for="btn-modal2">cerrar</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="img-container">
+                <img src="/ResponsiveDesing/Img/guitar3.jpg" alt="">
+            </div>
+            <div class="boton-modal">
+                <label for="btn-modal3">Descripcion</label>
+            </div>
+            <input type="checkbox" id="btn-modal3">
+            <div class="container-modal">
+                <div class="content-modal">
+                    <h2>Jackson Kelly Marty Friendman signature</h2>
+                    <p>La Jackson Kelly Marty Friedman Signature es una guitarra de cuerpo sólido con un diseño único y
+                        una estética que recuerda a las guitarras de los años 80. El cuerpo de caoba y el mástil de arce
+                        con diapasón de palorrosa le dan un sonido cálido y con mucho sustain. Las pastillas Seymour Duncan
+                        JB y Jazz le dan un sonido muy versátil y con mucho punch. El puente Floyd Rose Original le da
+                        un sonido muy agresivo y con mucho sustain. El acabado en nitrocelulosa le da un aspecto muy
+                        vintage y con mucho estilo. La Jackson Kelly Marty Friedman Signature es una guitarra muy versátil
+                        y con un sonido muy potente.</p>
+                    <div class="btn-cerrar">
+                        <label for="btn-modal3">cerrar</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="img-container">
+                <img src="/ResponsiveDesing/Img/guitar4.webp" alt="">
+            </div>
+            <div class="boton-modal">
+                <label for="btn-modal4">Descripcion</label>
+            </div>
+            <input type="checkbox" id="btn-modal4">
+            <div class="container-modal">
+                <div class="content-modal">
+                    <h2>Jackson Flying V Randy Rhoads Signature</h2>
+                    <p>El Pro RR combina un cuerpo de caoba con un mástil de arce de cuerpo entero de una pieza, con un par de
+                        varillas de grafito para refuerzo contra los ataques de temperatura y humedad. El perfil de cuello
+                        rápido está diseñado para un trabajo de guitarra deslumbrante, eliminando cualquier obstáculo para
+                        tocar con la flota y otorgando un acceso más fácil a los trastes superiores. Un diapasón de ébano de
+                        radio compuesto de 12 "-16" también está diseñado para tocar a una velocidad de la luz altamente
+                        técnica, más curvado por la tuerca para un acordeado cómodo, se aplana a medida que avanza por el
+                        cuello rápido para una velocidad de juego cada vez más rápida y curvas amplias sin preocuparse.
+                    <div class="btn-cerrar">
+                        <label for="btn-modal4">Cerrar</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!--contacto -->
+<section class = "contacto" id = "contact">
+    <div class="content">
+        <h1 class = "title">Contact <span>Me</span></h1>
+        <div class="contact-wrapper">
+            <div class="contact-form">
+                <h3>Contactame</h3>
+                <form action="recibir.php" method="POST">
+                    <p>
+                        <label for="fullname">Nombre completo</label>
+                        <input type="text" name="fullname" id="fullname">
+                    </p>
+                    <p>
+                        <label for="email">Correo electronico</label>
+                        <input type="email" name="email" id="email">
+                    </p>
+                    <p>
+                        <label for="phone">Telefono</label>
+                        <input type="tel" name="phone" id="phone">
+                    </p>
+                    <p>
+                        <label for="affair">Asunto</label>
+                        <input type="text" name="affair" id="affair">
+                    </p>
+                    <p class = "block">
+                        <label for="message">Mensaje</label>
+                        <textarea name="message" id="message" rows="3"></textarea>
+                        <style>
+                            textarea {
+                                resize: none;
+                            }
+                        </style>
+
+                    </p>
+                    <p class = "block">
+                        <button type="submit" name="enviar">Enviar</button>
+                    </p>
+                </form>
+            </div>
+            <div class="contact-info">
+                <h4>Mas informacion</h4>
+                <ul>
+                    <li><i class='bx bxs-city'></i>Guadalajara, Jal</li>
+                    <li><i class='bx bx-phone'></i>333-444-5554</li>
+                    <li><i class='bx bxs-envelope' ></i>contact@gmail.com</li>
+                </ul>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae labore minus molestias
+                    pariatur sequi. Exercitationem fuga </p>
+                <p>sobreMi.com</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class = "imagenes">
+    <h1>Ingresa tus propios albumes</h1>
+    <div class="containerIMG">
+        <div class="row">
+            <div class="col-12">
+                <form class = "formImages" action="enviarImg.php" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="nombreAlbum">Nombre del album:</label>
+                        <input class="inputAlbum" type="text" class ="form-control" id="nombreAlbum" name="nombreAlbum">
+                        <br>
+<!--                        <label for="banda">Nombre de la banda:</label>-->
+<!--                        <input class ="inputAlbum" type="text" class = "form-control" id="banda" name="banda">-->
+<!--                        <br>-->
+                        <label for="precio">precio:</label>
+                        <input class="inputAlbum" type="text" class ="form-control" id="precio" name="precio">
+                        <br>
+                        <label for="precioOriginal">precio original:</label>
+                        <input class="inputAlbum" type="text" class ="form-control" id="precioOriginal" name="precioOriginal">
+                        <br>
+                        <label for="badge">Badge:</label>
+                        <input class="inputAlbum" type="text" class ="form-control" id="badge" name="badge">
+                        <br>
+                        <label for="categoria">Categoria:</label>
+                        <input class="inputAlbum" type="text" class ="form-control" id="categoria" name="categoria">
+                        <br>
+                        <label for="rating">rating:</label>
+                        <input class="inputAlbum" type="text" class ="form-control" id="rating" name="rating">
+                    </div>
+                    <label for="imagen">Incluya la imagen del album</label>
+                    <div class="drag-drop">
+                        <input class = "input-img" type="file" name="foto" id="imagen">
+                        <span class="fa-stack fa-2x">
+                            <i class="fa fa-cloud fa-stack-2x bottom pulsating"></i>
+                            <i class="fa fa-circle fa-stack-1x top medium"></i>
+                            <i class="fa fa-arrow-circle-up fa-stack-1x top"></i>
+                        </span>
+                        <span class="desc">Pulse aquí para añadir archivos</span>
+                    </div>
+
+                    <button class = "btn-img" type="submit" name="guardar">Enviar</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="footerC" id="footerC">
+    <class class="footer">
+        <div class="main">
+            <div class="col">
+                <h4>Page Links</h4>
+                <ul>
+                    <li><a href="#home">Inicio</a></li>
+                    <li><a href="#about">Sobre Mi</a></li>
+                    <li><a href="#albumes">Albumes</a></li>
+                    <li><a href="#lenguajes">Lenguajes</a></li>
+                    <li><a href="#guitars">guitarras</a></li>
+                    <li><a href="#contact">contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="col">
+                <h4>mis skills</h4>
+                <ul>
+                    <li><a href="#">web Design</a></li>
+                    <li><a href="#">web developer</a></li>
+                    <li><a href="#">Java Developer</a></li>
+                    <li><a href="#">Python developer</a></li>
+                    <li><a href="#">C++ developer</a></li>
+                </ul>
+            </div>
+
+            <div class="col">
+                <h4>Informacion</h4>
+                <ul>
+                    <li><a href="#">Sobre mi</a></li>
+                    <li><a href="#">Relleno 1</a></li>
+                    <li><a href="#">Relleno 2</a></li>
+                    <li><a href="#">Politica de privacidad</a></li>
+                    <li><a href="#">Terminos y condiciones</a></li>
+                </ul>
+            </div>
+            <div class="col">
+                <h4>contacto</h4>
+                <div class="social">
+                    <a href="#"><i class='bx bxl-facebook' ></i></a>
+                    <a href="#"><i class='bx bxl-instagram' ></i></a>
+                    <a href="#"><i class='bx bxl-twitter' ></i></a>
+                    <a href="#"><i class='bx bxl-github' ></i></a>
+                </div>
+            </div>
+        </div>
+    </class>
+</section>
+<!--JS-->
+<script type="text/javascript" src="Menu.js"></script>
+</body>
+</html>
