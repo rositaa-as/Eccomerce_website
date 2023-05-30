@@ -5,7 +5,7 @@ $user = "root";
 $db = "tienda";
 //conexion
 $con = mysqli_connect($server, $user, $pass, $db) or die("Error al conectarse a la base de datos");
-$imagen = 'C:/xampp/htdocs/puntodeVenta/archivo_prueba/IMGmain/b11-2.png';
+$imagen = 'C:/Users/Alx33/OneDrive/Documentos/Uni/Cuarto Semestre/PPI/IMAGENES/guitar-8-2.jpg';
 $tipoArchivo = mime_content_type($imagen);
 $permitido = array("image/jpg", "image/jpeg", "image/png");
 
@@ -15,5 +15,5 @@ if((in_array($tipoArchivo, $permitido) == false))
 }
 $contenido = file_get_contents($imagen);
 $contenido_binario = mysqli_real_escape_string($con, $contenido);
-$sql = "UPDATE productos SET Img2 = '$contenido_binario', tipoimg2 = '$tipoArchivo' WHERE id = 27";
+$sql = "UPDATE productos SET Img2 = '$contenido_binario', tipoimg2 = '$tipoArchivo' WHERE id =72";
 mysqli_query($con, $sql);

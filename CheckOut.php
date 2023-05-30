@@ -61,7 +61,7 @@
                 </li>
 
                 <li class="nav__item">
-                    <a href="PHPLogin/login-register.php" class="nav__link">Login</a>
+                    <a href="login-register.php" class="nav__link">Login</a>
                 </li>
             </ul>
 

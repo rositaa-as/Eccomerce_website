@@ -1,3 +1,20 @@
+<?php
+session_start();
+$usuario = "";
+//verificar si se ha iniciado sesion
+if(isset($_SESSION['usuario']))
+{
+    $usuario = $_SESSION['usuario'];
+
+}
+if (isset($_POST['logout'])) {
+// Destruir la sesión
+    session_destroy();
+}
+
+
+?>
+
 <!--Estructura de html-->
 <!DOCTYPE html>
 <html lang="es">
@@ -25,6 +42,11 @@
                         <span>Localización</span>
                     </div>
                     <p class="header__alert-news">Rêve de Luxe</p>
+                    <!-- Formulario para cerrar sesión -->
+                    <p>Usuario Activo: <?php echo $usuario;?></p>
+                    <form method="POST">
+                        <input type="submit" value="Cerrar sesión" name="logout">
+                    </form>
                     <a href="login-register.php" class="header__top-action">Log In/Sign Up</a>
                 </div>
             </div>
@@ -67,8 +89,8 @@
                     </ul>
 
                     <div class="header__search">
-                        <input type="text" placeholder="Busca un Articulo..." class="form__input">
-                        <button class="search__btn">
+                        <input type="text" placeholder="Busca Por categoria..." class="form__input" id="searchInput">
+                        <button class="search__btn" id ="searchButton">
                             <img src="/archivo_prueba/Assets/Img/search.png" alt="">
                         </button>
                     </div>
@@ -152,9 +174,13 @@
                             <?php
                             $sqlProd = "SELECT * FROM productos";
                             $resProd = mysqli_query($con,$sqlProd);
-
+                            $contador =0;
                             while($columnProd=mysqli_fetch_assoc($resProd))
                             {
+                                if($contador>=8)
+                                {
+                                    break;
+                                }
                             ?>
                             <div class="product__item">
                                 <div class="product__banner">
@@ -200,7 +226,9 @@
                                     </a>
                                 </div>
                             </div>
+
                             <?php
+                                $contador++;
                             }
                             mysqli_close($con);
                             ?>
@@ -320,5 +348,6 @@
         <script src="/archivo_prueba/recursos/jsdelivir.js"></script>
 <!--=================MAIN JS================-->
         <script src="/archivo_prueba/Assets/JS/main.js"></script>
+        <script src="/archivo_prueba/Assets/JS/SearchBar.js"></script>
     </body>
 </html>

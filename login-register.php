@@ -66,8 +66,8 @@
             </ul>
 
             <div class="header__search">
-                <input type="text" placeholder="Buscar un articulo.." class="form__input">
-                <button class="search__btn">
+                <input type="text" placeholder="Buscar un articulo.." class="form__input" id="searchInput">
+                <button class="search__btn" id="searchButton">
                     <img src="/archivo_prueba/Assets/Img/search.png" alt="">
                 </button>
             </div>
@@ -106,7 +106,7 @@
                 <h3 class="section__title">Login</h3>
 
                 <form action="/archivo_prueba/PHPLogin/login_account.php" class="form grid" method="POST">
-                    <input type="text" placeholder="Ingresa tu Correo Electrónico" class="form__input" name="emailL">
+                    <input type="text" placeholder="Ingresa tu Correo Electrónico o username" class="form__input" name="emailL">
 
                     <input type="password" placeholder="Ingresa tu Contraseña" class="form__input" name="contraL">
 
@@ -251,5 +251,6 @@
 
 <!--=============== MAIN JS ===============-->
 <script src="/archivo_prueba/Assets/JS/main.js"></script>
+<script src="/archivo_prueba/Assets/JS/SearchBar.js"></script>
 </body>
 </html>

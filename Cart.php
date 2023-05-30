@@ -61,13 +61,13 @@
                 </li>
 
                 <li class="nav__item">
-                    <a href="PHPLogin/login-register.php" class="nav__link">Login</a>
+                    <a href="login-register.php" class="nav__link">Login</a>
                 </li>
             </ul>
 
             <div class="header__search">
-                <input type="text" placeholder="Search for items..." class="form__input">
-                <button class="search__btn">
+                <input type="text" placeholder="Search for items..." class="form__input" id="searchInput">
+                <button class="search__btn" id="searchButton">
                     <img src="Assets/ImgPrueba/search.png" alt="">
                 </button>
             </div>
@@ -102,26 +102,60 @@
         $db = "tienda";
         $total = 0;
         $con=mysqli_connect($server, $user, $pass, $db) or die("Error al conectarse a la base de datos");
-        $query= "SELECT id, nombre, tipo,Img,precio,categoria FROM productos WHERE id=$id";
-        $resultados = mysqli_query($con,$query);
 
+        $sqlVerificar = "SELECT id, cantidad FROM carrito WHERE id = ?";
+        $stmtVerificar = mysqli_prepare($con, $sqlVerificar);
+        mysqli_stmt_bind_param($stmtVerificar, "i", $id);
+        mysqli_stmt_execute($stmtVerificar);
+        $resultadoVerificar = mysqli_stmt_get_result($stmtVerificar);
+        $productoExistente = mysqli_fetch_assoc($resultadoVerificar);
+
+        if($productoExistente)
+        {
+            $nuevaCantidad = $productoExistente['cantidad'] + 1;
+            $sqlActualizar = "UPDATE carrito SET cantidad = ? WHERE id = ?";
+            $stmtActualizar = mysqli_prepare($con, $sqlActualizar);
+            mysqli_stmt_bind_param($stmtActualizar, "ii", $nuevaCantidad, $id);
+            mysqli_stmt_execute($stmtActualizar);
+        }
+        else
+        {
+            $query= "SELECT id, nombre, tipo,Img,precio,categoria FROM productos WHERE id=$id";
+            $resultados = mysqli_query($con,$query);
+            $column=mysqli_fetch_assoc($resultados);
             //variables
-
+            $idCar = $column['id'];
+            $nombre = $column['nombre'];
+            $tipo = $column['tipo'];
+            $img = $column['Img'];
+            $precio = $column['precio'];
+            $categoria = $column['categoria'];
+            $cantidad = 1;
+//
 //            //Sentencia
-//            $sql2 = "INSERT INTO carrito(id,nombre, tipo,Img,precio,categoria) VALUES
-//                                              ('$idCar','$nombre','$tipo','$img','$precio','$categoria')";
-//            $resultados2 = mysqli_query($con,$sql2);
-//            //calcular el precio
-//            $resultadoT = mysqli_query($con, "SELECT COUNT(*) AS total FROM carrito");
-//            $datos = mysqli_fetch_assoc($resultadoT);
-//            $total += $datos['total'];
+            $sql2 = "INSERT INTO carrito (id, nombre, tipo, Img, precio, categoria,cantidad) VALUES (?, ?, ?, ?, ?, ?,?)";
+            $stmt = mysqli_prepare($con, $sql2);
+            mysqli_stmt_bind_param($stmt, "isssdsi", $idCar, $nombre, $tipo, $img, $precio, $categoria,$cantidad);
+            $resultados2 = mysqli_stmt_execute($stmt);
+            if ($resultados2) {
+                // La inserción fue exitosa
+                $column2 = mysqli_stmt_affected_rows($stmt);
+            }
+            else
+            {
+                echo "<script> alert('error al realizar la consulta');window.history.go(-1);</script>";
+            }
+        }
+
+    }
+
+
 //
 //            //total de productos
 //            $resultadoProd = mysqli_query($con, "SELECT COUNT(*) AS totalProd FROM carrito");
 //            $datosProd = mysqli_fetch_assoc($resultadoProd);
 //            $cantidad = $datos['totalProd'];
 
-    }
     ?>
     <!--=============== BREADCRUMB ===============-->
     <section class="breadcrumb">
@@ -133,34 +167,40 @@
     </section>
     <!--=============== CART ===============-->
     <?php
-
-    while($column2=mysqli_fetch_assoc($resultados))
+    $sql3 = "SELECT id, nombre, tipo, Img, precio,cantidad FROM carrito";
+    $resultados3 = mysqli_query($con, $sql3);
+    while($column3 = mysqli_fetch_assoc($resultados3))
     {
+        //calcular el precio
+        $precio = $column3['precio'];
+        $cantidad = $column3['cantidad'];
+        $column3['total'] = $precio * $cantidad;
+
     ?>
     <section class="cart section--lg container">
         <div class="table__container"></div>
         <table class="table">
             <tr>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Quantity</th>
+                <th>Imagen</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>cantidad</th>
                 <th>Subtotal</th>
-                <th>Remove</th>
+                <th>Remover</th>
             </tr>
 
             <tr>
                 <td>
-                    <img src="data:<?php echo $column2['tipo'];?>;base64, <?php echo base64_encode($column2['Img']);?>" alt="" class="table__img">
+                    <img src="data:<?php echo $column3['tipo'];?>;base64, <?php echo base64_encode($column3['Img']);?>" alt="" class="table__img">
                 </td>
                 <td>
-                    <h3 class="table__title"><?php echo $column2['nombre'];?></h3>
+                    <h3 class="table__title"><?php echo $column3['nombre'];?></h3>
 
                     <p class="table__descripcion">Productos hechos con los mejores materiales de alta calidad para mayor duración.</p>
                 </td>
-                <td><span class="table__prince"><?php echo $column2['precio'];?></span></td>
-                <td><input type="number" value="1" class="quantity"></td>
-                <td><span class="table__subtotal"><?php echo $column2['precio']; ?></span></td>
+                <td><span class="table__prince"><?php echo $column3['precio'];?></span></td>
+                <td><input type="number" value="<?php echo $column3['cantidad']; ?>" class="quantity"></td>
+                <td><span class="table__subtotal"><?php echo $column3['total']; ?></span></td>
                 <td><i class="fi fi-rs-trash table__trash"></i></td>
             </tr>
         </table>
@@ -282,6 +322,7 @@
 
 <!--=============== MAIN JS ===============-->
 <script src=""></script>
+<script src="/archivo_prueba/Assets/JS/SearchBar.js"></script>
 </body>
 </html>
 

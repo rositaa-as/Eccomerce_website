@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="recursos/jsdelivir.css"/>
 
     <!--=============== CSS ===============-->
-    <link rel="stylesheet" href="Assets/CSS/styles.css" />
+    <link rel="stylesheet" href="/archivo_prueba/Assets/CSS/styles.css"/>
     <!--==============IMG Pestaña===============-->
     <link rel="icon" type="image/x-icon" href="/archivo_prueba/Assets/Img/Logo2.png">
 
@@ -61,13 +61,13 @@
                 </li>
 
                 <li class="nav__item">
-                    <a href="PHPLogin/login-register.php" class="nav__link">Login</a>
+                    <a href="login-register.php" class="nav__link">Login</a>
                 </li>
             </ul>
 
             <div class="header__search">
-                <input type="text" placeholder="Search for items..." class="form__input">
-                <button class="search__btn">
+                <input type="text" placeholder="Search for items..." class="form__input" id="searchInput">
+                <button class="search__btn" id="searchButton">
                     <img src="Assets/ImgPrueba/search.png" alt="">
                 </button>
             </div>
@@ -104,9 +104,29 @@
     $user = "root";
     $db = "tienda";
     $con=mysqli_connect($server, $user, $pass, $db) or die("Error al conectarse a la base de datos");
-    $resultado = mysqli_query($con, "SELECT COUNT(*) AS total FROM productos");
-    $datos = mysqli_fetch_assoc($resultado);
-    $cantidad = $datos['total'];
+    if(isset($_GET['search']))
+    {
+        $search = $_GET['search'];
+        $sql = "SELECT * FROM productos WHERE categoria LIKE '%$search%'";
+        $res = mysqli_query($con,$sql);
+        if(mysqli_num_rows($res) == 0)
+        {
+            echo "<script>alert('No se encontraron resultados');window.history.go(-1);</script>";
+        }
+        else
+        {
+            $resultado = mysqli_query($con, "SELECT COUNT(*) AS total FROM productos WHERE categoria LIKE '%$search%'");
+            $datos = mysqli_fetch_assoc($resultado);
+            $cantidad = $datos['total'];
+        }
+    }
+    else
+    {
+        $resultado = mysqli_query($con, "SELECT COUNT(*) AS total FROM productos");
+        $datos = mysqli_fetch_assoc($resultado);
+        $cantidad = $datos['total'];
+    }
+
     ?>
     <!--=============== PRODUCTS ===============-->
     <section class="products section--lg container">
@@ -114,10 +134,16 @@
 
         <div class="products__container grid">
             <?php
-
-            $sqlProd = "SELECT * FROM productos";
-            $resProd = mysqli_query($con,$sqlProd);
-
+            if(isset($_GET['search']))
+            {
+                $sqlProd = "SELECT * FROM productos WHERE categoria LIKE '%$search%'";
+                $resProd = mysqli_query($con,$sqlProd);
+            }
+            else
+            {
+                $sqlProd = "SELECT * FROM productos";
+                $resProd = mysqli_query($con,$sqlProd);
+            }
             while($columnProd=mysqli_fetch_assoc($resProd))
             {
                 ?>
@@ -299,5 +325,6 @@
 
 <!--=============== MAIN JS ===============-->
 <script src="/archivo_prueba/Assets/JS/main.js"></script>
+<script src="/archivo_prueba/Assets/JS/SearchBar.js"></script>
 </body>
 </html>

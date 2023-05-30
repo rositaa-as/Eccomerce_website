@@ -63,13 +63,13 @@
                 </li>
 
                 <li class="nav__item">
-                    <a href="PHPLogin/login-register.php" class="nav__link">Login</a>
+                    <a href="login-register.php" class="nav__link">Login</a>
                 </li>
             </ul>
 
             <div class="header__search">
-                <input type="text" placeholder="Search for items..." class="form__input">
-                <button class="search__btn">
+                <input type="text" placeholder="Search for items..." class="form__input" id="searchInput">
+                <button class="search__btn" id="searchButton">
                     <img src="Assets/Img/search.png" alt="">
                 </button>
             </div>
@@ -328,6 +328,7 @@
 
 <!--=============== MAIN JS ===============-->
 <script src="/archivo_prueba/Assets/JS/main.js"></script>
+<script src="/archivo_prueba/Assets/JS/SearchBar.js"></script>
 </body>
 </html>
 
